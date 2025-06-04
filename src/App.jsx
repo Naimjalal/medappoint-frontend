@@ -1,11 +1,17 @@
-import Nav from "./components/Nav"
-
+import Nav from './components/Nav'
+import { Route, Routes } from 'react-router'
 
 const App = () => {
   return (
     <div>
-      <Nav/>
-      <h1>Welcome to Medappoint Frontend</h1>
+      <Nav />
+      <main>
+        <Routes>
+          <Route path="/" />
+          <Route path="/signin" />
+          <Route path="/register" />
+        </Routes>
+      </main>
     </div>
   )
 }
