@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import axios from 'axios'
 const SignIn = ({setUser}) => {
@@ -5,6 +6,7 @@ const SignIn = ({setUser}) => {
     email: '',
     password: ''
   })
+  const navigate = useNavigate()
 
   const handleChange = (e) => {
     setFormState({...formState,[e.target.name]: e.target.value})
@@ -17,6 +19,7 @@ const SignIn = ({setUser}) => {
       setUser(response.data.user)
       setFormState({email: "", password:""})
       console.log("Login Successful")
+      navigate("/")
     } catch (error) {
       console.error("Login failed",error.response?.data || error.message)
     }
