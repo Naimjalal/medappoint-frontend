@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import axios from 'axios'
 
@@ -19,6 +20,8 @@ const Register = () => {
   const handleChange = (e) => {
     setFormState({ ...formState, [e.target.name]: e.target.value })
   }
+  const navigate = useNavigate()
+
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
@@ -28,6 +31,7 @@ const Register = () => {
       )
       console.log('Registration successful:', response.data)
       setFormState(initialState)
+      navigate("/signin")
     } catch (error) {
       console.error(
         'Registration failed:',
