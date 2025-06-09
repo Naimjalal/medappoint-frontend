@@ -1,3 +1,4 @@
+import "./Register.css"
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import axios from 'axios'
@@ -7,6 +8,7 @@ const Register = () => {
     username: '',
     email: '',
     password: '',
+    confirmPassword: "",
     firstName: '',
     lastName: '',
     gender: '',
@@ -24,6 +26,10 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    if (formState.password !== formState.confirmPassword){
+      alert("Passwords do not match!")
+      return
+    }
     try {
       const response = await axios.post(
         'http://localhost:3001/auth/register',
@@ -42,6 +48,7 @@ const Register = () => {
   }
 
   return (
+    <div className="register-container">
     <form onSubmit={handleSubmit}>
       <h2>Register</h2>
       <input
@@ -64,6 +71,13 @@ const Register = () => {
         placeholder="Password"
         onChange={handleChange}
         value={formState.password}
+      />
+      <input
+      type = "password"
+      name ="confirmPassword"
+      placeholder='Confirm Password'
+      onChange={handleChange}
+      value= {formState.confirmPassword}
       />
       <input
         type="text"
@@ -156,6 +170,7 @@ const Register = () => {
       />
       <button type="submit">Register</button>
     </form>
+    </div>
   )
 }
 
