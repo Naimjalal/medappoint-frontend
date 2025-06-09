@@ -22,6 +22,7 @@ const SignIn = ({setUser}) => {
       navigate("/")
     } catch (error) {
       console.error("Login failed",error.response?.data || error.message)
+      alert("Invalid email or password")
     }
   }
 
