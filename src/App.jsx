@@ -6,6 +6,7 @@ import Home from './pages/Home'
 import SignIn from './pages/SignIn'
 import Hospital from './pages/Hospital'
 import Donation from './pages/Donation'
+import Dashboard from './pages/Dashboard'
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -25,6 +26,7 @@ const App = () => {
             path="/hospitals/:hospitalId/donation"
             element={<Donation user={user} />}
           />
+          <Route path="/dashboard" element={<Dashboard user={user} />} />
         </Routes>
       </main>
     </div>
