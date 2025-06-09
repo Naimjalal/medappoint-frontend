@@ -1,3 +1,4 @@
+ import "./SignIn.css"
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import axios from 'axios'
@@ -27,6 +28,7 @@ const SignIn = ({setUser}) => {
   }
 
   return (
+    <div className="signin-container">
     <form onSubmit={handleSubmit}>
       <h2>Sign In </h2>
       <input
@@ -45,6 +47,7 @@ const SignIn = ({setUser}) => {
       />
       <button type='submit'>Login</button>
     </form>
+    </div>
   )
 }
 
