@@ -1,3 +1,4 @@
+import "./Register.css"
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import axios from 'axios'
@@ -47,6 +48,7 @@ const Register = () => {
   }
 
   return (
+    <div className="register-container">
     <form onSubmit={handleSubmit}>
       <h2>Register</h2>
       <input
@@ -168,6 +170,7 @@ const Register = () => {
       />
       <button type="submit">Register</button>
     </form>
+    </div>
   )
 }
 
