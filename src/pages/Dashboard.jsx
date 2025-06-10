@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import DonationCard from '../components/DonationCard'
 const Dashboard = ({ user }) => {
@@ -19,7 +18,9 @@ const Dashboard = ({ user }) => {
   return (
     <div>
       {donations ? (
-        donations.map((donation) => <DonationCard donation={donation} />)
+        donations.map((donation) => (
+          <DonationCard donation={donation} key={donation._id} />
+        ))
       ) : (
         <p>No donations</p>
       )}

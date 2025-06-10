@@ -7,6 +7,7 @@ import SignIn from './pages/SignIn'
 import Hospital from './pages/Hospital'
 import Donation from './pages/Donation'
 import Dashboard from './pages/Dashboard'
+import EditDonation from './pages/EditDonation'
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -27,6 +28,7 @@ const App = () => {
             element={<Donation user={user} />}
           />
           <Route path="/dashboard" element={<Dashboard user={user} />} />
+          <Route path="/editDonation/:donationId" element={<EditDonation />} />
         </Routes>
       </main>
     </div>
