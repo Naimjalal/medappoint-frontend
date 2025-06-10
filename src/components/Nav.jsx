@@ -1,11 +1,12 @@
 import { Link } from 'react-router-dom'
-import "./Nav.css"
+import './Nav.css'
 const Nav = ({ user, handleLogOut }) => {
   return (
     <nav>
       <Link to="/">Home</Link>
       {user ? (
         <>
+          <Link to="/dashboard">Dashboard</Link>
           <span>Welcome, {user.email}</span>
           <button onClick={handleLogOut}>Log Out</button>
         </>
