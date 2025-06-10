@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import Dashboard from './Dashboard'
 const Donation = ({ user }) => {
   const { hospitalId } = useParams()
   const initialState = {
     time: ''
   }
+  const navigate = useNavigate()
   const handleSubmit = async (event) => {
     event.preventDefault()
     await axios.post(
@@ -23,6 +25,7 @@ const Donation = ({ user }) => {
       }
     )
     setFormState(initialState)
+    navigate('/dashboard')
   }
   const handleChange = (event) => {
     setFormState({ ...formState, [event.target.id]: event.target.value })
