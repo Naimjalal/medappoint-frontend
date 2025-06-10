@@ -1,14 +1,17 @@
-import { useState } from "react"
-import Nav from "./components/Nav"
-import { Route, Routes } from "react-router"
-import Register from "./pages/Register"
-import Home from "./pages/Home"
-import SignIn from "./pages/SignIn"
-import Hospital from "./pages/Hospital"
-import Donation from "./pages/Donation"
-import Dashboard from "./pages/Dashboard"
+
+import { useState } from 'react'
+import Nav from './components/Nav'
+import { Route, Routes } from 'react-router'
+import Register from './pages/Register'
+import Home from './pages/Home'
+import SignIn from './pages/SignIn'
+import Hospital from './pages/Hospital'
+import Donation from './pages/Donation'
+import Dashboard from './pages/Dashboard'
+import Profile from './pages/Profile'
 import Appointment from "./pages/Appointment"
 import EditDonation from "./pages/EditDonation"
+
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -29,11 +32,15 @@ const App = () => {
             element={<Donation user={user} />}
           />
           <Route path="/dashboard" element={<Dashboard user={user} />} />
+
+          <Route path="/profile" element={<Profile user={user} />}></Route>
+
           <Route
             path="/appointment/:doctorId"
             element={<Appointment user={user} />}
           />
           <Route path="/editDonation/:donationId" element={<EditDonation />} />
+
         </Routes>
       </main>
     </div>
