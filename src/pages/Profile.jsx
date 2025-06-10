@@ -52,6 +52,20 @@ const Profile = ({ user }) => {
   return (
     <div>
       <h2>My Profile</h2>
+{isEditing ? (
+        <>
+          <input
+            name="username"
+            value={formState.username}
+            onChange={handleChange}
+            placeholder="Username"
+          />
+          <button onClick={handleUpdate}>Save</button>
+          <button onClick={() => setIsEditing(false)}>Cancel</button>
+        </>
+      ) : (
+        <>
+      
       <p>Username: {profile.username}</p>
       <p>
         Name:{profile.firstName}
@@ -63,6 +77,9 @@ const Profile = ({ user }) => {
       <p>Date of Birth: {profile.dateOfBirth}</p>
       <p>Phone: {profile.phone}</p>
       <p>Allergies: {profile.allergies}</p>
+      <button onClick= {()=> setIsEditing(true)}>Edit Profile</button>
+       </>
+      )}
     </div>
   )
 }
