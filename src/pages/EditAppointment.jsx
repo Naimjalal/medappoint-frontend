@@ -1,58 +1,68 @@
-import { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
+import { useParams, useNavigate } from 'react-router-dom'
 import axios from 'axios'
-import DonationCard from '../components/DonationCard'
-import AppointmentCard from '../components/AppointmentCard' // <-- import AppointmentCard
 
-const Dashboard = ({ user }) => {
-  const [donations, setDonations] = useState([])
-  const [appointments, setAppointments] = useState([])
+const EditAppointment = () => {
+  const { appointmentId } = useParams()
+  const [formState, setFormState] = useState({})
+  const navigate = useNavigate()
 
   useEffect(() => {
-    const getDonations = async () => {
-      const foundDonations = await axios('http://localhost:3001/donations', {
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: 'Bearer '.concat(localStorage.getItem('token'))
+    const getAppointment = async () => {
+      const foundAppointment = await axios.get(
+        `http://localhost:3001/appointments/${appointmentId}`,
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: 'Bearer '.concat(localStorage.getItem('token'))
+          }
         }
-      })
-      setDonations(foundDonations.data)
+      )
+      setFormState(foundAppointment.data)
     }
 
-    const getAppointments = async () => {
-      const foundAppointments = await axios('http://localhost:3001/appointments', {
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: 'Bearer '.concat(localStorage.getItem('token'))
-        }
-      })
-      setAppointments(foundAppointments.data)
-    }
-
-    getDonations()
-    getAppointments()
+    getAppointment()
   }, [])
+
+  const handleChange = (event) => {
+    setFormState({ ...formState, [event.target.id]: event.target.value })
+  }
+
+  const handleSubmit = async (event) => {
+    event.preventDefault()
+    await axios.put(
+      `http://localhost:3001/appointments/${appointmentId}`,
+      formState,
+      {
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: 'Bearer '.concat(localStorage.getItem('token'))
+        }
+      }
+    )
+    navigate('/dashboard')
+  }
 
   return (
     <div>
-      <h2>Donations</h2>
-      {donations.length > 0 ? (
-        donations.map((donation) => (
-          <DonationCard donation={donation} key={donation._id} />
-        ))
+      {formState ? (
+        <div>
+          <form onSubmit={handleSubmit}>
+            <input
+              onChange={handleChange}
+              id="time"
+              type="datetime-local"
+              value={formState.time?.slice(0, 16)} // small trick to fit input format
+              required
+            />
+            <button type="submit">Edit Appointment</button>
+          </form>
+        </div>
       ) : (
-        <p>No donations</p>
-      )}
-
-      <h2>Appointments</h2>
-      {appointments.length > 0 ? (
-        appointments.map((appointment) => (
-          <AppointmentCard appointment={appointment} key={appointment._id} />
-        ))
-      ) : (
-        <p>No appointments</p>
+        <p>Loading...</p>
       )}
     </div>
   )
 }
 
-export default Dashboard
+export default EditAppointment

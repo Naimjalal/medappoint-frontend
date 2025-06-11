@@ -28,11 +28,11 @@ const AppointmentCard = ({ appointment }) => {
   return (
     <div className="appointment-card">
       <p><strong>Date & Time:</strong> {new Date(appointment.time).toLocaleString()}</p>
-      <p><strong>Doctor:</strong> {appointment.doctorId?.name}</p>
+      <p><strong>Doctor:</strong> {appointment.doctorId?.drName}</p>
       <p><strong>Hospital:</strong> {appointment.hospitalId?.name}</p>
 
       <div className="buttons">
-        <Link to={`/edit-appointment/${appointment._id}`}>
+        <Link to={`/editAppointment/${appointment._id}`}>
           <button>Edit</button>
         </Link>
         <button onClick={handleDelete}>Delete</button>
