@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
+import "./Profile.css"
 
 const Profile = ({ user }) => {
   console.log('Profile user prop:', user)
@@ -50,10 +51,10 @@ const Profile = ({ user }) => {
   if (!profile) return <h2>Loading profile...</h2>
 
   return (
-    <div>
+    <div className='profile-container'>
       <h2>My Profile</h2>
       {isEditing ? (
-        <>
+        <div className='profile-form'>
         <label>User Name: </label>
           <input
             name="username"
@@ -113,11 +114,14 @@ const Profile = ({ user }) => {
             onChange={handleChange}
             placeholder="Allergies"
           />
+          <div className='button-group'>
           <button onClick={handleUpdate}>Save</button>
           <button onClick={() => setIsEditing(false)}>Cancel</button>
-        </>
+        </div>
+        </div>
+        
       ) : (
-        <>
+        <div className='profile-info'>
           <p>Username: {profile.username}</p>
           <p>
             Name:{profile.firstName}
@@ -130,7 +134,7 @@ const Profile = ({ user }) => {
           <p>Phone: {profile.phone}</p>
           <p>Allergies: {profile.allergies}</p>
           <button onClick={() => setIsEditing(true)}>Edit Profile</button>
-        </>
+        </div>
       )}
     </div>
   )
