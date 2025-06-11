@@ -11,6 +11,7 @@ const Register = () => {
     confirmPassword: "",
     firstName: '',
     lastName: '',
+    cpr:"",
     gender: '',
     bloodType: '',
     nationality: '',
@@ -93,7 +94,17 @@ const Register = () => {
         onChange={handleChange}
         value={formState.lastName}
       />
-
+<label htmlFor="cpr">Cpr: </label>
+<input
+  type="text"
+  name="cpr"
+  placeholder="CPR (9 digits)"
+  onChange={handleChange}
+  value={formState.cpr}
+  pattern="\d{9}"
+  title="CPR must be exactly 9 digits"
+  required
+/>
       <label htmlFor="gender">Gender: </label>
       <select
         id="gender"

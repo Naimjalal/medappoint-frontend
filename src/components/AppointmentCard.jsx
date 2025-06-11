@@ -40,11 +40,12 @@ const AppointmentCard = ({ appointment }) => {
 
       <div className="buttons">
         <Link to={`/editAppointment/${appointment._id}`}>
-          <button>Edit</button>
+          <button>Edit Appointment</button>
         </Link>
         <button onClick={handleDelete} className="danger">
           Delete
         </button>
+        <button onClick={handleDelete}>Cancel Appointment</button>
       </div>
     </div>
   )

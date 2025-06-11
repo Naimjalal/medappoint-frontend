@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
+import './Profile.css'
 
 const Profile = ({ user }) => {
   console.log('Profile user prop:', user)
@@ -50,21 +51,23 @@ const Profile = ({ user }) => {
   if (!profile) return <h2>Loading profile...</h2>
 
   return (
-    <div>
+    <div className="profile-container">
       <h2>My Profile</h2>
       {isEditing ? (
-        <>
-        <label>User Name: </label>
+        <div className="profile-form">
+          <label>User Name: </label>
           <input
             name="username"
             value={formState.username}
             onChange={handleChange}
             placeholder="Username"
           />
+          <label>CPR: </label>
+          <input name="cpr" value={formState.cpr} onChange={handleChange} />
           <label>Blood Type: </label>
           <select
             name="bloodType"
-            value={formState.blood}
+            value={formState.bloodType}
             onChange={handleChange}
           >
             <option value="">Select</option>
@@ -113,24 +116,45 @@ const Profile = ({ user }) => {
             onChange={handleChange}
             placeholder="Allergies"
           />
-          <button onClick={handleUpdate}>Save</button>
-          <button onClick={() => setIsEditing(false)}>Cancel</button>
-        </>
+          <div className="button-group">
+            <button onClick={handleUpdate}>Save</button>
+            <button onClick={() => setIsEditing(false)}>Cancel</button>
+          </div>
+        </div>
       ) : (
-        <>
-          <p>Username: {profile.username}</p>
+        <div className="profile-info">
           <p>
-            Name:{profile.firstName}
-             {profile.lastName}
+            <span>Username:{profile.username}</span>
           </p>
-          <p>Gender: {profile.gender}</p>
-          <p>Blood Type: {profile.bloodType}</p>
-          <p>Nationality: {profile.nationality}</p>
-          <p>Date of Birth: {profile.dateOfBirth}</p>
-          <p>Phone: {profile.phone}</p>
-          <p>Allergies: {profile.allergies}</p>
+          <p>
+            <span>
+              Name:{profile.firstName}
+              {profile.lastName}
+            </span>
+          </p>
+          <p>
+            <span>CPR: {profile.cpr}</span>
+          </p>
+          <p>
+            <span>Gender: {profile.gender}</span>
+          </p>
+          <p>
+            <span>Blood Type: {profile.bloodType}</span>
+          </p>
+          <p>
+            <span>Nationality: {profile.nationality}</span>
+          </p>
+          <p>
+            <span>Date of Birth: {profile.dateOfBirth}</span>
+          </p>
+          <p>
+            <span>Phone: {profile.phone}</span>
+          </p>
+          <p>
+            <span>Allergies: {profile.allergies}</span>
+          </p>
           <button onClick={() => setIsEditing(true)}>Edit Profile</button>
-        </>
+        </div>
       )}
     </div>
   )

@@ -12,8 +12,8 @@ const Dashboard = ({ user }) => {
 
   useEffect(() => {
     if (!user) {
-      alert('Please register')
-      navigate('/register')
+      alert('Please sign in (or register if not register)')
+      navigate('/signIn')
       return
     }
     const getDonations = async () => {
