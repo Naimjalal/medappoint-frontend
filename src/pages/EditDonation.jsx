@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react"
-import { useParams, useNavigate } from "react-router-dom"
-import axios from "axios"
+import { useEffect, useState } from 'react'
+import { useParams, useNavigate } from 'react-router-dom'
+import axios from 'axios'
 const EditDonation = () => {
   const { donationId } = useParams()
   const [formState, setFormState] = useState({})
@@ -11,9 +11,9 @@ const EditDonation = () => {
         `http://localhost:3001/donations/${donationId}`,
         {
           headers: {
-            "Content-Type": "application/json",
-            Authorization: "Bearer ".concat(localStorage.getItem("token")),
-          },
+            'Content-Type': 'application/json',
+            Authorization: 'Bearer '.concat(localStorage.getItem('token'))
+          }
         }
       )
       setFormState(foundDonation.data)
@@ -32,12 +32,12 @@ const EditDonation = () => {
       formState,
       {
         headers: {
-          "Content-Type": "application/json",
-          Authorization: "Bearer ".concat(localStorage.getItem("token")),
-        },
+          'Content-Type': 'application/json',
+          Authorization: 'Bearer '.concat(localStorage.getItem('token'))
+        }
       }
     )
-    navigate("/dashboard")
+    navigate('/dashboard')
   }
   return (
     <div>
