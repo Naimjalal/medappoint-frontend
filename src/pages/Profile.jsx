@@ -65,7 +65,7 @@ const Profile = ({ user }) => {
           <label>Blood Type: </label>
           <select
             name="bloodType"
-            value={formState.blood}
+            value={formState.bloodType}
             onChange={handleChange}
           >
             <option value="">Select</option>
