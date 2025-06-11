@@ -46,11 +46,14 @@ const App = () => {
             path="/appointment/:doctorId"
             element={<Appointment user={user} />}
           />
-          <Route path="/editDonation/:donationId" element={<EditDonation />} />
+          <Route
+            path="/editDonation/:donationId"
+            element={<EditDonation user={user} />}
+          />
 
           <Route
             path="/editAppointment/:appointmentId"
-            element={<EditAppointment />}
+            element={<EditAppointment user={user} />}
           />
         </Routes>
       </main>

@@ -2,13 +2,19 @@ import './Donation.css'
 import { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import axios from 'axios'
-import Dashboard from './Dashboard'
 const Donation = ({ user }) => {
   const { hospitalId } = useParams()
   const initialState = {
     time: ''
   }
   const navigate = useNavigate()
+  useEffect(() => {
+    if (!user) {
+      alert('Please register to apply for a donation')
+      navigate('/register')
+      return
+    }
+  }, [])
   const handleSubmit = async (event) => {
     event.preventDefault()
     await axios.post(
