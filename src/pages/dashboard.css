@@ -1,0 +1,25 @@
+.donations-container,
+.appointments-container {
+  display: grid;
+  grid-template-columns: repeat(3, 300px);
+  grid-gap: 1rem;
+  justify-content: center;
+}
+
+.donation-card,
+.appointment-card {
+  background-color: #ffffff;
+  text-align: center;
+  border-radius: 0.4rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ccc;
+  padding: 1rem;
+}
+
+button.danger {
+  background-color: #dc3545;
+}
+
+.donation-card form {
+  display: inline;
+}

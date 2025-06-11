@@ -1,3 +1,4 @@
+import './Dashboard.css'
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
@@ -44,20 +45,25 @@ const Dashboard = ({ user }) => {
 
   return (
     <div>
+      <h1>Dashboard</h1>
       <h2>Donations</h2>
       {donations.length > 0 ? (
-        donations.map((donation) => (
-          <DonationCard donation={donation} key={donation._id} />
-        ))
+        <div className="donations-container">
+          {donations.map((donation) => (
+            <DonationCard donation={donation} key={donation._id} />
+          ))}
+        </div>
       ) : (
         <p>No donations</p>
       )}
 
       <h2>Appointments</h2>
       {appointments.length > 0 ? (
-        appointments.map((appointment) => (
-          <AppointmentCard appointment={appointment} key={appointment._id} />
-        ))
+        <div className="appointments-container">
+          {appointments.map((appointment) => (
+            <AppointmentCard appointment={appointment} key={appointment._id} />
+          ))}
+        </div>
       ) : (
         <p>No appointments</p>
       )}
