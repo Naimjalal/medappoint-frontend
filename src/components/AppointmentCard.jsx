@@ -43,9 +43,8 @@ const AppointmentCard = ({ appointment }) => {
           <button>Edit Appointment</button>
         </Link>
         <button onClick={handleDelete} className="danger">
-          Delete
+          Cancel Appointment
         </button>
-        <button onClick={handleDelete}>Cancel Appointment</button>
       </div>
     </div>
   )
