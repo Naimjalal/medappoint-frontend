@@ -27,15 +27,24 @@ const AppointmentCard = ({ appointment }) => {
 
   return (
     <div className="appointment-card">
-      <p><strong>Date & Time:</strong> {new Date(appointment.time).toLocaleString()}</p>
-      <p><strong>Doctor:</strong> {appointment.doctorId?.drName}</p>
-      <p><strong>Hospital:</strong> {appointment.hospitalId?.name}</p>
+      <p>
+        <strong>Date & Time:</strong>{' '}
+        {new Date(appointment.time).toLocaleString()}
+      </p>
+      <p>
+        <strong>Doctor:</strong> {appointment.doctorId?.drName}
+      </p>
+      <p>
+        <strong>Hospital:</strong> {appointment.hospitalId?.name}
+      </p>
 
       <div className="buttons">
         <Link to={`/editAppointment/${appointment._id}`}>
           <button>Edit</button>
         </Link>
-        <button onClick={handleDelete}>Delete</button>
+        <button onClick={handleDelete} className="danger">
+          Delete
+        </button>
       </div>
     </div>
   )
