@@ -1,4 +1,3 @@
-
 import './App.css'
 import { useState } from 'react'
 import Nav from './components/Nav'
@@ -12,7 +11,7 @@ import Dashboard from './pages/Dashboard'
 import Profile from './pages/Profile'
 import Appointment from './pages/Appointment'
 import EditDonation from './pages/EditDonation'
-
+import EditAppointment from './pages/EditAppointment'
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -49,12 +48,10 @@ const App = () => {
           />
           <Route path="/editDonation/:donationId" element={<EditDonation />} />
 
-
           <Route
             path="/editAppointment/:appointmentId"
             element={<EditAppointment />}
           />
-
         </Routes>
       </main>
     </div>
