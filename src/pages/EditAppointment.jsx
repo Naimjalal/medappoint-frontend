@@ -2,12 +2,17 @@ import { useEffect, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
-const EditAppointment = () => {
+const EditAppointment = ({ user }) => {
   const { appointmentId } = useParams()
   const [formState, setFormState] = useState({})
   const navigate = useNavigate()
 
   useEffect(() => {
+    if (!user) {
+      alert('Please register to book an appointment')
+      navigate('/register')
+      return
+    }
     const getAppointment = async () => {
       const foundAppointment = await axios.get(
         `http://localhost:3001/appointments/${appointmentId}`,

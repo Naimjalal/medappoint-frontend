@@ -15,11 +15,11 @@
   font-size: 1rem;
 }
 
-form button:hover {
+.donation-form button:hover {
   background-color: #218838;
 }
 
-input {
+.donation-form input {
   padding: 10px;
   border-radius: 8px;
   border: 1px solid #aaa;
