@@ -1,26 +1,55 @@
 .profile-container {
-  width: 400px;
+  width: 600px;
   margin: 30px auto;
-  padding: 20px;
+  padding: 25px;
   border: 1px solid #ddd;
   border-radius: 10px;
   background-color: #fafafa;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+.profile-container h2{
+  text-align: center;
+  margin-bottom: 20px;
+  color: #2b6777
+}
+.profile-container p {
+  font-size: 16px;
+  margin: 10px 0;
+}
+.profile-form label {
+  display: block;
+  margin-top: 15px;
+  font-weight: bold;
+  text-align: left;
 }
 
+.profile-form input,
 .profile-form select {
   width: 100%;
-  padding: 8px;
-  margin-bottom: 10px;
+  padding: 10px;
+  margin-top: 5px;
   border-radius: 5px;
   border: 1px solid #ccc;
 }
-
-.profile-info p {
-  margin-bottom: 8px;
+.profile-info{
+ text-align: center;
+ margin: 0 auto;
+ width: 80%;
 }
-button {
-  padding: 8px 16px;
+.profile-info p {
+  margin-bottom: 18px;
+  margin: 15px 0;
+}
+.profile-info p span{
+  font-weight: bold;
+}
+.button-group  {
+  margin-top: 20px;
+  text-align: center;
+}
+.button-group button {
+  padding: 10px 20px;
   margin: 5px;
   border-radius: 5px;
   border: none;

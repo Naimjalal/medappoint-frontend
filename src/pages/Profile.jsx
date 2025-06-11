@@ -122,17 +122,17 @@ const Profile = ({ user }) => {
         
       ) : (
         <div className='profile-info'>
-          <p>Username: {profile.username}</p>
+          <p><span>Username:{profile.username}</span></p>
           <p>
-            Name:{profile.firstName}
-             {profile.lastName}
+            <span>Name:{profile.firstName}
+             {profile.lastName}</span>
           </p>
-          <p>Gender: {profile.gender}</p>
-          <p>Blood Type: {profile.bloodType}</p>
-          <p>Nationality: {profile.nationality}</p>
-          <p>Date of Birth: {profile.dateOfBirth}</p>
-          <p>Phone: {profile.phone}</p>
-          <p>Allergies: {profile.allergies}</p>
+          <p><span>Gender: {profile.gender}</span></p>
+          <p><span>Blood Type: {profile.bloodType}</span></p>
+          <p><span>Nationality: {profile.nationality}</span></p>
+          <p><span>Date of Birth: {profile.dateOfBirth}</span></p>
+          <p><span>Phone: {profile.phone}</span></p>
+          <p><span>Allergies: {profile.allergies}</span></p>
           <button onClick={() => setIsEditing(true)}>Edit Profile</button>
         </div>
       )}
