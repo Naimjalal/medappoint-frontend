@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import axios from 'axios'
-import Dashboard from './Dashboard'
 const Donation = ({ user }) => {
   const { hospitalId } = useParams()
   const initialState = {
