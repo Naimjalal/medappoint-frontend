@@ -1,3 +1,4 @@
+import './Donation.css'
 import { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import axios from 'axios'
@@ -33,7 +34,7 @@ const Donation = ({ user }) => {
 
   const [formState, setFormState] = useState(initialState)
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="donation-form">
       <input
         type="date"
         id="time"

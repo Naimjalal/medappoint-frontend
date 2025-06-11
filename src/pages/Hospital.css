@@ -1,0 +1,49 @@
+.departments-container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 3rem;
+}
+
+.doctors-container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.donation-container {
+  text-align: center;
+}
+
+.donation-container button {
+  padding: 12px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+}
+
+.donation-container button:hover {
+  background-color: #218838;
+}
+
+.department-card {
+  border-bottom: 1px black solid;
+  padding-bottom: 1rem;
+}
+
+.doctor-card {
+  background-color: #ffffff;
+  text-align: center;
+  border-radius: 0.4rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ccc;
+  padding: 1rem;
+  width: 200px;
+}
+
+.doctor-card a {
+  text-decoration: none;
+  color: #0077b6;
+}
