@@ -1,3 +1,19 @@
 * {
   font-family: Arial, sans-serif;
 }
+
+body {
+  margin: 0;
+  background: linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)), 
+              url('/images/hospital-background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  min-height: 100vh;
+}
+
+main {
+  padding: 20px;
+}
+
+h1, h2 {
+  color: #2b6777;
+}
