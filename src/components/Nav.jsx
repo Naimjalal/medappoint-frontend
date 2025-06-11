@@ -8,7 +8,7 @@ const Nav = ({ user, handleLogOut }) => {
         <>
           <Link to="/profile">My Profile</Link>
           <Link to="/dashboard">Dashboard</Link>
-          <span>Welcome, {user.email}</span>
+          <span>Welcome, {user.email} !</span>
           <button onClick={handleLogOut}>Log Out</button>
         </>
       ) : (

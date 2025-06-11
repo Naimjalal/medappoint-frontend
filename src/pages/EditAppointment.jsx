@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react'
-import { useParams, useNavigate } from 'react-router-dom'
-import axios from 'axios'
+import { useEffect, useState } from "react"
+import { useParams, useNavigate } from "react-router-dom"
+import axios from "axios"
 
 const EditAppointment = ({ user }) => {
   const { appointmentId } = useParams()
@@ -9,8 +9,8 @@ const EditAppointment = ({ user }) => {
 
   useEffect(() => {
     if (!user) {
-      alert('Please register to book an appointment')
-      navigate('/register')
+      alert("Please register to book an appointment")
+      navigate("/register")
       return
     }
     const getAppointment = async () => {
@@ -18,9 +18,9 @@ const EditAppointment = ({ user }) => {
         `http://localhost:3001/appointments/${appointmentId}`,
         {
           headers: {
-            'Content-Type': 'application/json',
-            Authorization: 'Bearer '.concat(localStorage.getItem('token'))
-          }
+            "Content-Type": "application/json",
+            Authorization: "Bearer ".concat(localStorage.getItem("token")),
+          },
         }
       )
       setFormState(foundAppointment.data)
@@ -40,12 +40,12 @@ const EditAppointment = ({ user }) => {
       formState,
       {
         headers: {
-          'Content-Type': 'application/json',
-          Authorization: 'Bearer '.concat(localStorage.getItem('token'))
-        }
+          "Content-Type": "application/json",
+          Authorization: "Bearer ".concat(localStorage.getItem("token")),
+        },
       }
     )
-    navigate('/dashboard')
+    navigate("/dashboard")
   }
 
   return (
