@@ -1,57 +1,57 @@
 // pages/Appointment.jsx
-import { useState, useEffect } from "react"
-import { useParams, useNavigate } from "react-router-dom"
-import axios from "axios"
+import { useState, useEffect } from 'react'
+import { useParams, useNavigate } from 'react-router-dom'
+import axios from 'axios'
 
 const Appointment = ({ user }) => {
   const { doctorId } = useParams()
   const navigate = useNavigate()
 
   const initialState = {
-    time: "",
+    time: ''
   }
 
   const [formState, setFormState] = useState(initialState)
   const [doctor, setDoctor] = useState(null)
 
   useEffect(() => {
+    if (!user) {
+      alert('Please register to book an appointment')
+      navigate('/register')
+      return
+    }
     const fetchDoctor = async () => {
       try {
         const res = await axios.get(`http://localhost:3001/doctors/${doctorId}`)
         setDoctor(res.data)
       } catch (err) {
-        console.error("Failed to fetch doctor", err)
+        console.error('Failed to fetch doctor', err)
       }
     }
     fetchDoctor()
   }, [])
 
-  if (!user) {
-    alert("Please log in to book an appointment")
-    navigate("/register")
-    return
-  }
   const handleSubmit = async (event) => {
     event.preventDefault()
     try {
       await axios.post(
-        "http://localhost:3001/appointments",
+        'http://localhost:3001/appointments',
         {
           ...formState,
           doctorId,
-          hospitalId: doctor.hospitalId,
+          hospitalId: doctor.hospitalId
         },
         {
           headers: {
-            "Content-Type": "application/json",
-            Authorization: "Bearer ".concat(localStorage.getItem("token")),
-          },
+            'Content-Type': 'application/json',
+            Authorization: 'Bearer '.concat(localStorage.getItem('token'))
+          }
         }
       )
       setFormState(initialState)
       navigate("/dashboard") 
     } catch (err) {
-      console.error("Failed to create appointment", err)
+      console.error('Failed to create appointment', err)
     }
   }
 

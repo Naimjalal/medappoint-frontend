@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import DonationCard from '../components/DonationCard'
 import AppointmentCard from '../components/AppointmentCard' // <-- import AppointmentCard
@@ -6,8 +7,14 @@ import AppointmentCard from '../components/AppointmentCard' // <-- import Appoin
 const Dashboard = ({ user }) => {
   const [donations, setDonations] = useState([])
   const [appointments, setAppointments] = useState([])
+  const navigate = useNavigate()
 
   useEffect(() => {
+    if (!user) {
+      alert('Please register')
+      navigate('/register')
+      return
+    }
     const getDonations = async () => {
       const foundDonations = await axios('http://localhost:3001/donations', {
         headers: {
@@ -19,12 +26,15 @@ const Dashboard = ({ user }) => {
     }
 
     const getAppointments = async () => {
-      const foundAppointments = await axios('http://localhost:3001/appointments', {
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: 'Bearer '.concat(localStorage.getItem('token'))
+      const foundAppointments = await axios(
+        'http://localhost:3001/appointments',
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: 'Bearer '.concat(localStorage.getItem('token'))
+          }
         }
-      })
+      )
       setAppointments(foundAppointments.data)
     }
 
