@@ -49,7 +49,7 @@ const Appointment = ({ user }) => {
         }
       )
       setFormState(initialState)
-      navigate('/') // redirect after booking
+      navigate("/dashboard") 
     } catch (err) {
       console.error('Failed to create appointment', err)
     }
