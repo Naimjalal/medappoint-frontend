@@ -1,3 +1,4 @@
+import './Hospital.css'
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import DepartmentCard from '../components/DepartmentCard'
@@ -18,9 +19,15 @@ const Hospital = ({ user }) => {
   return (
     <div className="hospital">
       {user ? (
-        <Link to={`/hospitals/${hospitalId}/donation`}>
-          <button>Donate</button>
-        </Link>
+        <div className="donation-container">
+          <p>
+            This hospital is open for blood donations, please consider a
+            donation.
+          </p>
+          <Link to={`/hospitals/${hospitalId}/donation`}>
+            <button>Donate</button>
+          </Link>
+        </div>
       ) : null}
       <div className="departments-container">
         {departments ? (

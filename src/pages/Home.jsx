@@ -1,3 +1,4 @@
+import './Home.css'
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import HospitalCard from '../components/HospitalCard'
@@ -14,19 +15,17 @@ const Home = () => {
   return (
     <div>
       <h1>Welcome to Medappoint</h1>
-      <div className="hospitals-container">
-        {hospitals ? (
-          <div className="hospitals-container">
-            {hospitals.map((hospital) => (
-              <Link to={`hospitals/${hospital._id}`} key={hospital._id}>
-                <HospitalCard hospital={hospital} />
-              </Link>
-            ))}
-          </div>
-        ) : (
-          <></>
-        )}
-      </div>
+      {hospitals ? (
+        <div className="hospitals-container">
+          {hospitals.map((hospital) => (
+            <Link to={`hospitals/${hospital._id}`} key={hospital._id}>
+              <HospitalCard hospital={hospital} />
+            </Link>
+          ))}
+        </div>
+      ) : (
+        <h2>Loading...</h2>
+      )}
     </div>
   )
 }
