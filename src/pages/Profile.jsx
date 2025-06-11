@@ -52,33 +52,85 @@ const Profile = ({ user }) => {
   return (
     <div>
       <h2>My Profile</h2>
-{isEditing ? (
+      {isEditing ? (
         <>
+        <label>User Name: </label>
           <input
             name="username"
             value={formState.username}
             onChange={handleChange}
             placeholder="Username"
           />
+          <label>Blood Type: </label>
+          <select
+            name="bloodType"
+            value={formState.blood}
+            onChange={handleChange}
+          >
+            <option value="">Select</option>
+            <option value="A+">A+</option>
+            <option value="A-">A-</option>
+            <option value="B+">B+</option>
+            <option value="B-">B-</option>
+            <option value="O+">O+</option>
+            <option value="O-">O-</option>
+            <option value="AB+">AB+</option>
+            <option value="AB-">AB-</option>
+          </select>
+          <label>Nationality:</label>
+          <select
+            name="nationality"
+            value={formState.nationality}
+            onChange={handleChange}
+          >
+            <option value="">Select</option>
+            <option value="Bahraini">Bahraini</option>
+            <option value="Indian">Indian</option>
+            <option value="Pakistani">Pakistani</option>
+            <option value="Bangladeshi">Bangladeshi</option>
+            <option value="Filipino">Filipino</option>
+            <option value="American">American</option>
+            <option value="Other">Other</option>
+          </select>
+          <label>Date of Birth: </label>
+          <input
+            type="date"
+            name="dateOfBirth"
+            value={formState.dateOfBirth}
+            onChange={handleChange}
+          />
+          <label>Phone: </label>
+          <input
+            name="phone"
+            value={formState.phone}
+            onChange={handleChange}
+            placeholder="Phone"
+          />
+          <label>Allergies: </label>
+          <input
+            name="allergies"
+            value={formState.allergies}
+            onChange={handleChange}
+            placeholder="Allergies"
+          />
           <button onClick={handleUpdate}>Save</button>
           <button onClick={() => setIsEditing(false)}>Cancel</button>
         </>
       ) : (
         <>
-      
-      <p>Username: {profile.username}</p>
-      <p>
-        Name:{profile.firstName}
-        {profile.lastName}
-      </p>
-      <p>Gender: {profile.gender}</p>
-      <p>Blood Type: {profile.bloodType}</p>
-      <p>Nationality: {profile.nationality}</p>
-      <p>Date of Birth: {profile.dateOfBirth}</p>
-      <p>Phone: {profile.phone}</p>
-      <p>Allergies: {profile.allergies}</p>
-      <button onClick= {()=> setIsEditing(true)}>Edit Profile</button>
-       </>
+          <p>Username: {profile.username}</p>
+          <p>
+            Name:{profile.firstName}
+             {profile.lastName}
+          </p>
+          <p>Gender: {profile.gender}</p>
+          <p>Blood Type: {profile.bloodType}</p>
+          <p>Nationality: {profile.nationality}</p>
+          <p>Date of Birth: {profile.dateOfBirth}</p>
+          <p>Phone: {profile.phone}</p>
+          <p>Allergies: {profile.allergies}</p>
+          <button onClick={() => setIsEditing(true)}>Edit Profile</button>
+        </>
       )}
     </div>
   )
