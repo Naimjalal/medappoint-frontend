@@ -17,7 +17,7 @@ const AppointmentCard = ({ appointment }) => {
           }
         )
         alert('Appointment deleted successfully')
-        navigate(0) // refresh the page after deletion
+        navigate('/') // refresh the page after deletion
       } catch (err) {
         console.error(err)
         alert('Error deleting appointment')
