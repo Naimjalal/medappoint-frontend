@@ -11,6 +11,7 @@ const Register = () => {
     confirmPassword: "",
     firstName: '',
     lastName: '',
+    cpr:"",
     gender: '',
     bloodType: '',
     nationality: '',
@@ -93,7 +94,14 @@ const Register = () => {
         onChange={handleChange}
         value={formState.lastName}
       />
-
+<label htmlFor="cpr">Cpr: </label>
+<input
+  type="text"
+  name="cpr"
+  placeholder="CPR"
+  onChange={handleChange}
+  value={formState.cpr}
+/>
       <label htmlFor="gender">Gender: </label>
       <select
         id="gender"
